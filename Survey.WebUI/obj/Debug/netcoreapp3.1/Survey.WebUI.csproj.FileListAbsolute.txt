@@ -188,3 +188,12 @@ D:\Kubra\Final2\Survey\Survey.WebUI\bin\Debug\netcoreapp3.1\NPOI.OpenXmlFormats.
 D:\Kubra\Final2\Survey\Survey.WebUI\bin\Debug\netcoreapp3.1\NPOI.dll
 D:\Kubra\Final2\Survey\Survey.WebUI\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 D:\Kubra\Final2\Survey\Survey.WebUI\bin\Debug\netcoreapp3.1\ICSharpCode.SharpZipLib.dll
+D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Poll\ApprovedPolls.cshtml.g.cs
+D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Poll\UnapprovedPolls.cshtml.g.cs
+D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Poll\PollResults.cshtml.g.cs
+D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Poll\ResultOfPoll.cshtml.g.cs
+D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
+D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Account\Profile.cshtml.g.cs
+D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Account\EditProfile.cshtml.g.cs
+D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Voted\MissedPolls.cshtml.g.cs
+D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Voted\VotedPolls.cshtml.g.cs

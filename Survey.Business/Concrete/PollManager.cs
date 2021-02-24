@@ -68,6 +68,31 @@ namespace Survey.Business.Concrete
            return pollDal.GetAll();
         }
 
+        public List<Poll> GetApprovedPolls()
+        {
+
+            List<Poll> approveds = new List<Poll>();
+          
+            var polls = pollDal.GetAll();
+            foreach (var poll in polls)
+            {
+                int requiredValue = poll.RequiredVote;
+                var questions = yesNoQuestionDal.GetQuestionsByPollId(poll.Id);
+                foreach (var question in questions)
+                {
+                    int apprevedValue = yesNoAnswerDal.GetAnswersByQuestionId(question.Id);
+                    if (requiredValue <= apprevedValue)
+                    {
+                        approveds.Add(poll); 
+                    }
+
+
+                }
+            }
+            return approveds;
+
+        }
+
         public List<Poll> GetExpiredPolls()
         {
             return pollDal.GetAll();
@@ -98,6 +123,29 @@ namespace Survey.Business.Concrete
         {
             return pollDal.GetByIdWithDetails(id);
 
+        }
+
+        public List<Poll> GetUnapprovedPolls()
+        {
+            List<Poll> unapproveds = new List<Poll>();
+
+            var polls = pollDal.GetAll();
+            foreach (var poll in polls)
+            {
+                int requiredValue = poll.RequiredVote;
+                var questions = yesNoQuestionDal.GetQuestionsByPollId(poll.Id);
+                foreach (var question in questions)
+                {
+                    int apprevedValue = yesNoAnswerDal.GetAnswersByQuestionId(question.Id);
+                    if (requiredValue > apprevedValue)
+                    {
+                        unapproveds.Add(poll);
+                    }
+
+
+                }
+            }
+            return unapproveds;
         }
 
         public List<Poll> HaventQuestionPoll()

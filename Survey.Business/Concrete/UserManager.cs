@@ -32,7 +32,7 @@ namespace Survey.Business.Concrete
 
         public User GetUserById(int id)
         {
-            throw new NotImplementedException();
+            return userDal.GetUserById(id);
         }
 
         public User GetUserByUserName(string userName)
@@ -43,12 +43,12 @@ namespace Survey.Business.Concrete
 
         public List<User> GetUsers()
         {
-            throw new NotImplementedException();
+            return userDal.GetUsers();
         }
 
         public void UpdateUser(User user)
         {
-            throw new NotImplementedException();
+             userDal.Update(user);
         }
 
         public User ValidUser(string username, string password)

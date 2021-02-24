@@ -46,5 +46,20 @@ namespace Survey.WebUI.Controllers
             //var IsVotedPoll = userSurveysService.CheckVotedUser();
             return View(pollService.GetPolls());
         }
+
+        public IActionResult MissedPolls()
+        {
+            var userName = User.Identity.Name;
+            var user = userService.GetUserByUserName(userName);
+            var missedPolls = userSurveysService.MissedPollsOfUser(user.Id);
+            return View(missedPolls);
+        }
+        public IActionResult VotedPolls()
+        {
+            var userName = User.Identity.Name;
+            var user = userService.GetUserByUserName(userName);
+            var votedPolls = userSurveysService.VotedPollsOfUser(user.Id);
+            return View(votedPolls);
+        }
     }
 }

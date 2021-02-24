@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Survey.Entities.UserPoll>;
+@{
+    ViewData["Title"] = "MissedPolls";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Poll.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poll.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poll.CheckinDate)
+            </th>
+         
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            @if (item.Poll.CheckinDate.CompareTo(DateTime.Today) < 0)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Poll.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Poll.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Poll.CheckinDate)
+                    </td>
+
+                </tr>
+            }
+        }
+    </tbody>
+</table>

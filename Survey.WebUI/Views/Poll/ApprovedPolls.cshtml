@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Survey.Entities.Poll>
+
+@{
+    ViewData["Title"] = "ApprovedPolls";
+}
+
+<h4>Onaylanan Anketler</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckinDate)
+            </th>
+            <th>
+                Kalan gün sayısı
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiredVote)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var days = (int)item.HowManyDays();
+
+            @if (item.CheckinDate.CompareTo(DateTime.Today) < 0)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CheckinDate)
+                    </td>
+                    <td>
+                        @if (days <= 0)
+                        {
+                            <p class="text-danger"> @Math.Abs(days) gün önce süresi dolmuş.</p>
+                        }
+                        else if (days == 1)
+                        {
+                            <p class="text-danger"> Son gün</p>
+
+                        }
+                        else
+                        {
+                            @days
+
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequiredVote)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Tekrar Set Et</a> |
+
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

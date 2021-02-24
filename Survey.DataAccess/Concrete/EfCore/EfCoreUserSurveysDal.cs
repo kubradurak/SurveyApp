@@ -29,5 +29,17 @@ namespace Survey.DataAccess.Concrete.EfCore
             return dbContext.UserSurveys.Any(c => c.UserId == userId && c.PollId == pollId);
         }
 
+        public List<UserPoll> GetMissedPollsOfUserByUserId(int ıd)
+        {
+           return dbContext.UserSurveys
+                .Where(c => c.UserId != ıd ).ToList();
+
+        }
+
+        public List<UserPoll> GetVotedPollsOfUserByUserId(int ıd)
+        {
+            return dbContext.UserSurveys
+                            .Where(c => c.UserId == ıd).ToList();
+        }
     }
 }

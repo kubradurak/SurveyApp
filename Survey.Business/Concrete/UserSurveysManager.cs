@@ -26,5 +26,21 @@ namespace Survey.Business.Concrete
         {
             return userSurveysDal.CheckVotedUser(userId , pollId);
         }
+
+        public List<UserPoll> MissedPollsOfUser(int ıd)
+        {
+            return userSurveysDal.GetMissedPollsOfUserByUserId(ıd);
+        }
+
+        public List<UserPoll> VotedPollsOfUser(int ıd)
+        {
+            return userSurveysDal.GetVotedPollsOfUserByUserId(ıd);
+        }
+
+        List<UserPoll> IUserSurveysService.VotedPollsOfUser(int ıd)
+        {
+            return userSurveysDal.GetVotedPollsOfUserByUserId(ıd);
+        
+        }
     }
 }

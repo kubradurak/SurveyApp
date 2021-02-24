@@ -125,13 +125,37 @@ namespace Survey.WebUI.Controllers
 
         public IActionResult ExpiredSurveys()
         {
-            var surveys = pollService.GetPolls();
-            return View(surveys);
+            var polls = pollService.GetPolls();
+            return View(polls);
         }
         public IActionResult ActiveSurveys()
         {
-            var surveys = pollService.GetPolls();
-            return View(surveys);
+            var polls = pollService.GetPolls();
+            return View(polls);
         }
+
+        public IActionResult ApprovedPolls()
+        {
+            var polls = pollService.GetApprovedPolls();
+            return View(polls);
+        }
+        public IActionResult UnapprovedPolls()
+        {
+            var polls = pollService.GetUnapprovedPolls();
+            return View(polls);
+        }
+
+
+        public IActionResult PollResults()
+        {
+            var polls = pollService.GetPolls();
+            return View(polls);
+        }
+        public IActionResult ResultOfPoll(int id)
+        {
+            var poll = pollService.GetPollsForDetails(id);
+            return View(poll);
+        }
+
     }
 }

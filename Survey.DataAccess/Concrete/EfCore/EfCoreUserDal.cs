@@ -1,4 +1,5 @@
-﻿using Survey.DataAccess.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using Survey.DataAccess.Abstract;
 using Survey.DataAccess.Concrete.EfCore.Data;
 using Survey.Entities;
 using System;
@@ -48,7 +49,7 @@ namespace Survey.DataAccess.Concrete.EfCore
 
         public User GetUserById(int id)
         {
-            throw new NotImplementedException();
+            return dbContext.Users.Find(id);
         }
 
         public User GetUserByUserName(string userName)
@@ -58,18 +59,18 @@ namespace Survey.DataAccess.Concrete.EfCore
 
         public List<User> GetUsers()
         {
-            throw new NotImplementedException();
+            return dbContext.Users.ToList();
         }
 
         public void Update(User user)
         {
-            throw new NotImplementedException();
+            dbContext.Entry(user).State = EntityState.Modified;
+            dbContext.SaveChanges();
         }
 
         public User ValidUser(string username, string password)
         {
             return dbContext.Users.FirstOrDefault(u => u.UserName == username && u.Password == password);
-            //throw new NotImplementedException();
 
         }
     }

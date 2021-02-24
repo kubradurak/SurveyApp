@@ -69,6 +69,25 @@ namespace Survey.WebUI.Controllers
             }
             return View();
         }
+        public IActionResult Profile()
+        {
+            var user = userService.GetUserByUserName(User.Identity.Name);
+            return View(user);
+        }
+        public IActionResult EditProfile(int id)
+        {
+            var user = userService.GetUserById(id);
+            return View(user);
+        }
+        [HttpPost]
+        public IActionResult EditProfile(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                userService.UpdateUser(user);
+            }
+            return RedirectToAction(nameof(Profile));
+        }
 
         public async Task<IActionResult> Logout()
         {

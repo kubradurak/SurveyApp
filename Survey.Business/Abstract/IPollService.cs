@@ -21,5 +21,7 @@ namespace Survey.Business.Abstract
         void FileDowloadFormatWordById(int id);
         void SendMail(int id);
         bool IsApprovedPoll(int pollId, int questionId);
+        List<Poll> GetApprovedPolls();
+        List<Poll> GetUnapprovedPolls();
     }
 }

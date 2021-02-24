@@ -62,14 +62,12 @@
                             <a class="nav-link active" aria-current="page" asp-action="Index" asp-controller="Poll">Anketleri Görüntüle</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-action="" asp-controller="">Anket Sonuçları</a>
+                            <a class="nav-link" asp-action="PollResults" asp-controller="Poll">Anket Sonuçları</a>
                         </li>
                         <li class="nav-item">
                             <a asp-action="Index" asp-controller="Users" class="nav-link">Kullanıcılar</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">eklenebilir!</a>
-                        </li>
+                        
                     </ul>
                 </div>
             }
@@ -81,10 +79,10 @@
                             <a class="nav-link active" aria-current="page" asp-action="ToBeVotedSurveys" asp-controller="Voted">Anketler</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" asp-action="" asp-controller="">Oyladığı Anketler</a>
+                            <a class="nav-link active" aria-current="page" asp-action="VotedPolls" asp-controller="Voted">Oyladığı Anketler</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-action="" asp-controller="">Kaçırdığı Anketler</a>
+                            <a class="nav-link" asp-action="MissedPolls" asp-controller="Voted">Kaçırdığı Anketler</a>
                         </li>
                     </ul>
                 </div>

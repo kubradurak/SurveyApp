@@ -5,10 +5,9 @@
     var count = 1;
 }
 
-<h1>Details</h1>
+<h3>Anket detayları</h3>
 
 <div>
-    <h4>Poll</h4>
     <form method="post">
         <button asp-action="FileDowloadFormatWord" asp-route-id="@Model.Id" class="btn btn-info">Anket Bilgi Dosyası İndir.</button>
 
@@ -74,5 +73,5 @@
 
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Düzenle</a>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Anketlere dön</a>
 </div>
