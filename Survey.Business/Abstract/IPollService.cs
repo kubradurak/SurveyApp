@@ -1,4 +1,5 @@
 ﻿using Survey.Entities;
+using Survey.Entities.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,5 +24,6 @@ namespace Survey.Business.Abstract
         bool IsApprovedPoll(int pollId, int questionId);
         List<Poll> GetApprovedPolls();
         List<Poll> GetUnapprovedPolls();
+        PollDTO GetPollByIdForVote(int id);
     }
 }

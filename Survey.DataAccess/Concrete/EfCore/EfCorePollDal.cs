@@ -89,5 +89,10 @@ namespace Survey.DataAccess.Concrete.EfCore
             return dbContext.YesNoQuestions.Where(x => x.Id == id).ToList();
 
         }
+
+        public YesNoQuestion GetQuestionsByPollIdForVote(int id)
+        {
+            return dbContext.YesNoQuestions.FirstOrDefault(a => a.PollId == id); 
+        }
     }
 }

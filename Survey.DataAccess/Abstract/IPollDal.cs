@@ -20,5 +20,6 @@ namespace Survey.DataAccess.Abstract
         Poll GetByIdWithDetails(int id);
         int GetPollByQuestionId(int a);
         List<Poll> GetApprovedPoll();
+        YesNoQuestion GetQuestionsByPollIdForVote(int id);
     }
 }

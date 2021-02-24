@@ -3,6 +3,7 @@ using Survey.Business.Abstract;
 using Survey.DataAccess.Abstract;
 using Survey.DataAccess.Concrete.EfCore;
 using Survey.Entities;
+using Survey.Entities.DTO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -101,6 +102,17 @@ namespace Survey.Business.Concrete
         public Poll GetPollById(int id)
         {
             return pollDal.GetById(id);
+        }
+
+        public PollDTO GetPollByIdForVote(int id)
+        {
+            // OYLANACAK ANKETİN TÜM BİLGİLERİ BURADA
+            var poll = pollDal.GetById(id);
+            var question = pollDal.GetQuestionsByPollIdForVote(id);
+            PollDTO pollDTO = new PollDTO();
+            pollDTO.Poll = poll;
+            pollDTO.YesNoQuestion = question;
+            return pollDTO;
         }
 
         public int GetPollByQuestionId(int a)
