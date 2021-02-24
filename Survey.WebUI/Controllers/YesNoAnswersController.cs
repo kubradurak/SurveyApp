@@ -79,8 +79,8 @@ namespace Survey.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var a = yesNoAnswer.YesNoQuestionId;
-                var pollId = pollService.GetPollByQuestionId(a); // pollId
+                var questionId = yesNoAnswer.YesNoQuestionId;
+                var pollId = pollService.GetPollByQuestionId(questionId); // pollId
                 if (pollId == -1)
                 {
                     return RedirectToAction(nameof(ErrorView));
@@ -94,6 +94,8 @@ namespace Survey.WebUI.Controllers
 
 
                 yesNoAnswerService.AddYesNoAnswer(yesNoAnswer);
+              
+                bool IsApproved = pollService.IsApprovedPoll(pollId, questionId);
                 return RedirectToAction("ToBeVotedSurveys", "Voted");
 
             }

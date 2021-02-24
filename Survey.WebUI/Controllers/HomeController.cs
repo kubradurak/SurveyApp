@@ -29,7 +29,6 @@ namespace Survey.WebUI.Controllers
         public IActionResult Index()
         {
             var polls = pollService.GetPolls();
-            pollService.SendMail();
 
             return View(polls);
         }

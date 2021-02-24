@@ -36,6 +36,11 @@ namespace Survey.DataAccess.Concrete.EfCore
             return IsSavedUser;
         }
 
+        public List<User> GetAdmins()
+        {
+            return dbContext.Users.Where(a => a.Role == Role.Admin).ToList();
+        }
+
         public List<Poll> GetPollOfToBeVotedUser()
         {
             throw new NotImplementedException();

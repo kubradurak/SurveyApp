@@ -19,7 +19,7 @@ namespace Survey.Business.Abstract
         List<Poll> GetActivePolls();
         int GetPollByQuestionId(int a);
         void FileDowloadFormatWordById(int id);
-        void SendMail();
-
-        }
+        void SendMail(int id);
+        bool IsApprovedPoll(int pollId, int questionId);
+    }
 }

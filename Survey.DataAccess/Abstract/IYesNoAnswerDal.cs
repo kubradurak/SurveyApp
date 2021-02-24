@@ -9,6 +9,7 @@ namespace Survey.DataAccess.Abstract
     {
         void AddYesNoAnswer(YesNoAnswer answer);
         List<YesNoAnswer> GetAnswers();
+        int GetAnswersByQuestionId(int id);
 
     }
 }

@@ -14,11 +14,17 @@ namespace Survey.Business.Concrete
     {
         private IPollDal pollDal;
         private IYesNoQuestionDal yesNoQuestionDal;
+        private IUserDal userDal;
+        private IYesNoAnswerDal yesNoAnswerDal;
 
-        public PollManager(IPollDal pollDal, IYesNoQuestionDal yesNoQuestionDal)
+        public PollManager(IPollDal pollDal,
+            IYesNoAnswerDal yesNoAnswerDal,
+            IYesNoQuestionDal yesNoQuestionDal, IUserDal userDal)
         {
             this.pollDal = pollDal;
             this.yesNoQuestionDal = yesNoQuestionDal;
+            this.userDal = userDal;
+            this.yesNoAnswerDal = yesNoAnswerDal;
         }
 
         public void AddPoll(Poll poll)
@@ -86,60 +92,44 @@ namespace Survey.Business.Concrete
             return pollDal.GetAll();// sorusu olmayanlar
         }
 
-        public void SendMail()
+        public bool IsApprovedPoll(int pollId, int questionId)
         {
-            //onaylanan anketileri bul ve mail yolla
-            //onaylanan anketleri çağır
-            //o anketleri foreach ile dön 
-            //tek tek mail at her anket için
-            //
-            //
-            int count = 0;
-            var poll =  pollDal.GetAll();
-            foreach (var checkpoll in poll)
+            int requiredValue = pollDal.GetById(pollId).RequiredVote;
+            var apprevedValue = yesNoAnswerDal.GetAnswersByQuestionId(questionId);
+            if (requiredValue >= apprevedValue)
             {
-               
-                var questionList =  pollDal.GetQuestionsByPollID(checkpoll.Id);
-                foreach (var item in questionList)
-                {
-                    var answers = yesNoQuestionDal.GetAnswersByQuestionId(item.Id); ;
+                SendMail(pollId);
+                return true;
+            }
+            return false;
+        }
 
-                    foreach (var itemAnwer in answers)
+        public void SendMail(int id)
+        {
+            var adminList = userDal.GetAdmins();
+            var poll = pollDal.GetById(id);
+                foreach (var admin in adminList)
                     {
-                        if (itemAnwer.IsAccepted == true)
-                        {
-                            count++;
+                        var title = poll.Title;
+                        var decs = poll.Description;
 
-                        }
-                        
-                    }
-                }
-                if (checkpoll.RequiredVote == count)
-                {
-                    var id = checkpoll.Id;
-                    var title = checkpoll.Title;
-                    var decs = checkpoll.Description;
+                        MailMessage mail = new MailMessage();
 
-                    MailMessage mail = new MailMessage();
-                    mail.To.Add("infoturkcellFinalProject@gmail.com");
-                    mail.From = new MailAddress("infoturkcellFinalProject@gmail.com");
-                    mail.Subject = "Onaylanan bir anket var!";
-                    mail.Body = $"Sayın yetki <br> {title} başlıklı anket kullanıcılar tarafından yeter ki onayı aldı";
-                    mail.IsBodyHtml = true;
+                        mail.To.Add(admin.Email);
+                        mail.From = new MailAddress("infoturkcellFinalProject@gmail.com");
+                        mail.Subject = "Onaylanan bir anket var!";
+                        mail.Body = $"Sayın yetki <br> {title} başlıklı anket kullanıcılar tarafından yeter ki onayı aldı";
+                        mail.IsBodyHtml = true;
 
 
-                    SmtpClient smtp = new SmtpClient();
-                    smtp.Credentials = new NetworkCredential("infoturkcellFinalProject@gmail.com", "turkcell.net");
-                    smtp.Port = 587;
-                    smtp.Host = "smtp.gmail.com";
-                    smtp.EnableSsl = true;
-                    smtp.Send(mail);
-
-                }
+                        SmtpClient smtp = new SmtpClient();
+                        smtp.Credentials = new NetworkCredential("infoturkcellFinalProject@gmail.com", "turkcell.net");
+                        smtp.Port = 587;
+                        smtp.Host = "smtp.gmail.com";
+                        smtp.EnableSsl = true;
+                        smtp.Send(mail);                 
             }
            
-
-
         }
 
         public void Update(Poll poll)

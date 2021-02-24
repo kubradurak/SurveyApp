@@ -15,6 +15,7 @@ namespace Survey.DataAccess.Abstract
         User GetUserById(int id);
         void Update(User user);
         User GetUserByUserName(string userName);
+        List<User> GetAdmins();
     }
 }
 
