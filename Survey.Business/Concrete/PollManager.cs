@@ -1,9 +1,11 @@
-﻿using Survey.Business.Abstract;
+﻿using NPOI.XWPF.UserModel;
+using Survey.Business.Abstract;
 using Survey.DataAccess.Abstract;
 using Survey.DataAccess.Concrete.EfCore;
 using Survey.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
@@ -39,16 +41,27 @@ namespace Survey.Business.Concrete
 
         public void FileDowloadFormatWordById(int id)
         {
-            // dosyayı indir.
             var poll = pollDal.GetByIdWithDetails(id);
-            // 
-            //
-            //
-            //
-            //
 
+            var newFile2 = @"AnketDetaylari.docx"+ id;
+            using (var fs = new FileStream(newFile2, FileMode.Create, FileAccess.Write))
+            {
+                XWPFDocument doc = new XWPFDocument();
+                var p0 = doc.CreateParagraph();
+                p0.Alignment = ParagraphAlignment.LEFT;
+                XWPFRun r0 = p0.CreateRun();
+                r0.FontFamily = "Arial";
+                r0.FontSize = 18;
+                r0.IsBold = true;
+                r0.SetText($"{poll.Description} hakkındaki {poll.Title} başlıklı ankete ait detaylı bilgiler aşağıdadır. " +
+                    $"{poll.CheckinDate} tarihinde sonlanacak/sonlanan anket {poll.YesNoQuestions.Count} adet sorudan oluşmuştur.");
+               
 
-        }
+                doc.Write(fs);
+
+            }
+
+            }
 
         public List<Poll> GetActivePolls()
         {

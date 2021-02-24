@@ -9,7 +9,10 @@
 
 <div>
     <h4>Poll</h4>
-    <button asp-action="FileDowloadFormatWord" asp-route-id="@Model.Id" class="btn btn-info">Anket Bilgi Dosyası İndir.</button>
+    <form method="post">
+        <button asp-action="FileDowloadFormatWord" asp-route-id="@Model.Id" class="btn btn-info">Anket Bilgi Dosyası İndir.</button>
+
+    </form>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">

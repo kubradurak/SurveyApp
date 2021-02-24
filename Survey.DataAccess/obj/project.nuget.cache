@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YhCfgbFTsMl2i6UW0iUljgC/8x/ZPSMt1OiBBJjUnPl8uC4kXRwmUa91H7bVIbX4ZL2SY8G8mBBQXhIyMFtc+Q==",
+  "dgSpecHash": "RF+ql2f8vRGETPzVI4T9pVw8EApovP1jiSnsYo9s2VDzGaiz1t7gTjaYFl3vYKjK4F4slShEBvvDMGy0D4qmUg==",
   "success": true,
   "projectFilePath": "D:\\Kubra\\Final2\\Survey\\Survey.DataAccess\\Survey.DataAccess.csproj",
   "expectedPackageFiles": [
@@ -35,7 +35,10 @@
     "C:\\Users\\User\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\npoi\\2.5.2\\npoi.2.5.2.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\portable.bouncycastle\\1.8.6\\portable.bouncycastle.1.8.6.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\sharpziplib\\1.2.0\\sharpziplib.1.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",

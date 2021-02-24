@@ -182,3 +182,9 @@ D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Voted\To
 D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\YesNoAnswers\VotedPoll.cshtml.g.cs
 D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\YesNoAnswers\ErrorView.cshtml.g.cs
 D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Poll\FileDowloadFormatWord.cshtml.g.cs
+D:\Kubra\Final2\Survey\Survey.WebUI\bin\Debug\netcoreapp3.1\NPOI.OOXML.dll
+D:\Kubra\Final2\Survey\Survey.WebUI\bin\Debug\netcoreapp3.1\NPOI.OpenXml4Net.dll
+D:\Kubra\Final2\Survey\Survey.WebUI\bin\Debug\netcoreapp3.1\NPOI.OpenXmlFormats.dll
+D:\Kubra\Final2\Survey\Survey.WebUI\bin\Debug\netcoreapp3.1\NPOI.dll
+D:\Kubra\Final2\Survey\Survey.WebUI\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+D:\Kubra\Final2\Survey\Survey.WebUI\bin\Debug\netcoreapp3.1\ICSharpCode.SharpZipLib.dll

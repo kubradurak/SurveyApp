@@ -115,6 +115,7 @@ namespace Survey.WebUI.Controllers
             pollService.Delete(deleted);
             return RedirectToAction(nameof(Index));
         }
+        [HttpPost]
         public IActionResult FileDowloadFormatWord(int id)
         {
             pollService.FileDowloadFormatWordById(id);
