@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Survey.Entities.Poll>;
+
+@{
+    ViewData["Title"] = "NewSurvey";
+}
+
+
+<h1>NewSurvey</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckinDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiredVote)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckinDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequiredVote)
+                </td>
+                <td>
+                    <a asp-action="AddYesNoQuestion" asp-route-id="@item.Id">Soru Ekle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Survey.WebUI</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AnketApp</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                @if (User.IsInRole("Admin") || User.IsInRole("User"))
+                                {
+                                    <div class="w3-dropdown-hover">
+                                        <button class="w3-button ">@User.Identity.Name</button>
+                                        <div class="w3-dropdown-content">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Profile">Profilim</a>
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Çıkış Yap</a>
+                                        </div>
+                                    </div>}
+
+                            }
+                            else
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+
+                            }
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @if (User.Identity.IsAuthenticated)
+        {
+            @if (User.IsInRole("Admin"))
+            {
+
+                <div class="container-fluid shadow p-3 mb-5 bg-white rounded">
+                    <ul class="nav justify-content-center ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active" aria-current="page" asp-action="Create" asp-controller="Poll">Anket Oluştur</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" asp-action="Index" asp-controller="Poll">Anketleri Görüntüle</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="" asp-controller="">Anket Sonuçları</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Users" class="nav-link">Kullanıcılar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">eklenebilir!</a>
+                        </li>
+                    </ul>
+                </div>
+            }
+            else if (User.IsInRole("User"))
+            {
+                <div class="container-fluid shadow p-3 mb-5 bg-white rounded">
+                    <ul class="nav justify-content-center ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active" aria-current="page" asp-action="ToBeVotedSurveys" asp-controller="Voted">Anketler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" asp-action="" asp-controller="">Oyladığı Anketler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="" asp-controller="">Kaçırdığı Anketler</a>
+                        </li>
+                    </ul>
+                </div>
+            }
+        }
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Survey.WebUI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

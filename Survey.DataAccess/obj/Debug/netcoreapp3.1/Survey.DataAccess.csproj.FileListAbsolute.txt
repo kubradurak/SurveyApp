@@ -1,0 +1,15 @@
+D:\Kubra\Final2\Survey\Survey.DataAccess\bin\Debug\netcoreapp3.1\Survey.DataAccess.deps.json
+D:\Kubra\Final2\Survey\Survey.DataAccess\bin\Debug\netcoreapp3.1\Survey.DataAccess.runtimeconfig.json
+D:\Kubra\Final2\Survey\Survey.DataAccess\bin\Debug\netcoreapp3.1\Survey.DataAccess.runtimeconfig.dev.json
+D:\Kubra\Final2\Survey\Survey.DataAccess\bin\Debug\netcoreapp3.1\Survey.DataAccess.dll
+D:\Kubra\Final2\Survey\Survey.DataAccess\bin\Debug\netcoreapp3.1\Survey.DataAccess.pdb
+D:\Kubra\Final2\Survey\Survey.DataAccess\bin\Debug\netcoreapp3.1\Survey.Entities.dll
+D:\Kubra\Final2\Survey\Survey.DataAccess\bin\Debug\netcoreapp3.1\Survey.Entities.pdb
+D:\Kubra\Final2\Survey\Survey.DataAccess\obj\Debug\netcoreapp3.1\Survey.DataAccess.csprojAssemblyReference.cache
+D:\Kubra\Final2\Survey\Survey.DataAccess\obj\Debug\netcoreapp3.1\Survey.DataAccess.AssemblyInfoInputs.cache
+D:\Kubra\Final2\Survey\Survey.DataAccess\obj\Debug\netcoreapp3.1\Survey.DataAccess.AssemblyInfo.cs
+D:\Kubra\Final2\Survey\Survey.DataAccess\obj\Debug\netcoreapp3.1\Survey.DataAccess.csproj.CoreCompileInputs.cache
+D:\Kubra\Final2\Survey\Survey.DataAccess\obj\Debug\netcoreapp3.1\Survey.DataAccess.csproj.CopyComplete
+D:\Kubra\Final2\Survey\Survey.DataAccess\obj\Debug\netcoreapp3.1\Survey.DataAccess.dll
+D:\Kubra\Final2\Survey\Survey.DataAccess\obj\Debug\netcoreapp3.1\Survey.DataAccess.pdb
+D:\Kubra\Final2\Survey\Survey.DataAccess\obj\Debug\netcoreapp3.1\Survey.DataAccess.genruntimeconfig.cache

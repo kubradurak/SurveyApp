@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Survey.Entities.Poll>;
+
+@{
+    ViewData["Title"] = "Index";
+
+
+}
+
+<h1>Tüm Anketler</h1>
+
+<p>
+    <a asp-action="Create">Yeni Anket Oluştur</a>|
+    <a asp-action="ExpiredSurveys">Deadline Geçen Anketleri Görüntüle</a>|
+    <a asp-action="ActiveSurveys">Şuan Aktif Anketleri Görüntüle</a>|
+    <a asp-action="">Onaylanan Anketleri Görüntüle</a>|
+    <a asp-action="">Onaylanmayan Anketleri Görüntüle</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckinDate)
+            </th>
+            <th>
+                Kalan gün sayısı
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiredVote)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                var days = (int)item.HowManyDays();
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckinDate)
+            </td>
+            <td>
+                @if (days <= 0)
+                {
+                    <p class="text-danger"> @Math.Abs(days) gün önce süresi dolmuş.</p>
+                }
+                else if (days == 1)
+                {
+                 <p class="text-danger"> Son gün</p>
+
+                }
+                else
+                {
+                    @days
+
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequiredVote)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                <a asp-action="Create" asp-controller="YesNoQuestions" asp-route-surveyId="@item.Id" method="post">Evet/Hayır Sorusu Ekle</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

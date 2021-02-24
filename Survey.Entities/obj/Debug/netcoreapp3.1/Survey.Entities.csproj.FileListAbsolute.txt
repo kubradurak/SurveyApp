@@ -1,0 +1,9 @@
+D:\Kubra\Final2\Survey\Survey.Entities\bin\Debug\netcoreapp3.1\Survey.Entities.deps.json
+D:\Kubra\Final2\Survey\Survey.Entities\bin\Debug\netcoreapp3.1\Survey.Entities.dll
+D:\Kubra\Final2\Survey\Survey.Entities\bin\Debug\netcoreapp3.1\Survey.Entities.pdb
+D:\Kubra\Final2\Survey\Survey.Entities\obj\Debug\netcoreapp3.1\Survey.Entities.csprojAssemblyReference.cache
+D:\Kubra\Final2\Survey\Survey.Entities\obj\Debug\netcoreapp3.1\Survey.Entities.AssemblyInfoInputs.cache
+D:\Kubra\Final2\Survey\Survey.Entities\obj\Debug\netcoreapp3.1\Survey.Entities.AssemblyInfo.cs
+D:\Kubra\Final2\Survey\Survey.Entities\obj\Debug\netcoreapp3.1\Survey.Entities.csproj.CoreCompileInputs.cache
+D:\Kubra\Final2\Survey\Survey.Entities\obj\Debug\netcoreapp3.1\Survey.Entities.dll
+D:\Kubra\Final2\Survey\Survey.Entities\obj\Debug\netcoreapp3.1\Survey.Entities.pdb

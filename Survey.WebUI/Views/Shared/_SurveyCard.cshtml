@@ -1,0 +1,30 @@
+﻿@model Survey.Entities.Poll;
+
+@{
+    var request = ViewContext.HttpContext.Request;
+    string returnUrlValue = request.QueryString.HasValue ?
+        $"{request.Path}{request.QueryString}" : request.Path.Value;
+
+    var days = (int)Model.HowManyDays();
+}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text">@Model.Description</p>
+        @if (days == 1)
+        {
+            <p class="card-text text-danger">Oylama için son gün</p>
+
+        }
+        else
+        {
+            <p class="card-text">Oylama için son @days gün</p>
+            
+
+        }
+        <form asp-action="ShowSurvey" asp-controller="Home" asp-route-id="@Model.Id" method="get">
+
+            <button type="submit" class="btn btn-primary">Anketi görüntüle</button>
+        </form>
+    </div>
+</div>

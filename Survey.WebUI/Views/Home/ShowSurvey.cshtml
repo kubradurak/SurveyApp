@@ -1,0 +1,37 @@
+﻿@model List<SurveyDTO>
+@{
+    ViewData["Title"] = "ShowSurvey"; var count = 1;
+}
+
+
+
+
+<form method="post">
+
+    <div>
+        @for (int i =0; i<Model.Count; i++)
+        {
+        <div class="row questionDiv">
+            <br />
+            <input type="hidden"  asp-for="@Model[i].Question"/>
+            <p>Soru @Model[i].Question</p>
+            @*<partial name="_YesNoQuestion" model="@question" />*@
+
+            <div class="container h-100">
+                <div class="row h-100 ">
+                    <div class="col-10 col-md-8 col-lg-6">
+                        <input  asp-for="@Model[i].UserComment" />
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            count++;
+        }
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">post</button>
+</form>

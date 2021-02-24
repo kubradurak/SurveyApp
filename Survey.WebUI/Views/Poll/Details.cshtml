@@ -1,0 +1,68 @@
+﻿@model Survey.Entities.Poll
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Poll</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CheckinDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CheckinDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RequiredVote)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RequiredVote)
+        </dd>
+    </dl>
+</div>
+
+<div class="row">
+    @if (Model.YesNoQuestions == null)
+    {
+        <div></div>
+    }
+    else
+    {
+        @foreach (var book in Model.YesNoQuestions)
+        {
+            <div class="col-3">
+                <partial name="_YesNoQuestion" model="@book" />
+            </div>
+        }
+    }
+
+
+
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Düzenle</a>
+    <a asp-action="Index">Back to List</a>
+</div>
