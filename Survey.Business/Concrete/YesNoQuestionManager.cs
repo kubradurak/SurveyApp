@@ -1,6 +1,7 @@
 ﻿using Survey.Business.Abstract;
 using Survey.DataAccess.Abstract;
 using Survey.Entities;
+using Survey.Entities.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,9 +16,16 @@ namespace Survey.Business.Concrete
         {
             this.yesNoQuestionDal = yesNoQuestionDal;
         }
-        public void AddQuestion(YesNoQuestion question)
+       
+
+        public void AddQuestion(QuestionDTO questionDTO)
         {
+            YesNoQuestion question = new YesNoQuestion();
+            question = questionDTO.YesNoQuestion;
+            question.Id = questionDTO.YesNoQuestion.Id;
+            question.PollId = questionDTO.Poll.Id;
             yesNoQuestionDal.Add(question);
+           
         }
 
         public object DeleteQuestion(int id)

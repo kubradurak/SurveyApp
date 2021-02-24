@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Survey.Business.Abstract;
 using Survey.Entities;
+using Survey.Entities.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,26 +42,6 @@ namespace Survey.WebUI.Controllers
             return View(yesNoQuestion);
         }
 
-
-        public IActionResult Create()
-        {
-            List<SelectListItem> selectListItems = GetSurveysForSelect();
-            ViewBag.Items = selectListItems;
-            return View();
-        }
-
-
-        [HttpPost]
-        public IActionResult Create(YesNoQuestion yesNoQuestion)
-        {
-
-            if (ModelState.IsValid)
-            {
-                yesNoQuestionService.AddQuestion(yesNoQuestion);
-                return RedirectToAction(nameof(Index));
-            }
-            return View(yesNoQuestion);
-        }
         private List<SelectListItem> GetSurveysForSelect()
         {
             var categories = pollService.GetPolls();
@@ -121,6 +102,19 @@ namespace Survey.WebUI.Controllers
         {
             var yesNoQuestion = yesNoQuestionService.DeleteQuestion(id);
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult AddQuestion(int id)
+        {
+            var poll = pollService.GetPollByIdForAddQuestion(id);
+            return View(poll);
+
+        }
+        [HttpPost]
+        public IActionResult AddQuestion(QuestionDTO questionDTO)
+        {
+            yesNoQuestionService.AddQuestion(questionDTO);
+            return View("AddedQuestion");
         }
     }
 }

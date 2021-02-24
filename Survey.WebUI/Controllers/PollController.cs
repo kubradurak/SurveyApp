@@ -48,28 +48,6 @@ namespace Survey.WebUI.Controllers
             return View(polls);
         }
 
-        public IActionResult AddYesNoQuestion(int id)
-        {
-            // kullanılıyor mu incele
-            var survey = pollService.GetPollById(id);
-            ViewBag.SurveyId = survey.Id;
-            ViewBag.SurveyTitle = survey.Title;
-            return View();
-        }
-        [HttpPost]
-        public IActionResult AddYesNoQuestion(YesNoQuestion yesNoQuestion, int id)
-        {
-            if (ModelState.IsValid)
-            {
-                var survey = pollService.GetPollById(id);
-                yesNoQuestion.Poll = survey;
-                yesNoQuestion.PollId = survey.Id;
-
-                yesNoQuestionService.AddQuestion(yesNoQuestion);
-            }
-            return View();
-        }
-
         public IActionResult Edit(int id)
         {
             var existing = pollService.GetPollById(id);

@@ -75,7 +75,7 @@
                 <a asp-action="Edit" asp-route-id="@item.Id">Güncelle</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Detaylar</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Sil</a> |
-                <a asp-action="Create" asp-controller="YesNoQuestions" asp-route-surveyId="@item.Id" method="post">Evet/Hayır Sorusu Ekle</a>
+                <a asp-action="AddQuestion" asp-controller="YesNoQuestions" asp-route-id="@item.Id" method="post">Evet/Hayır Sorusu Ekle</a>
             </td>
         </tr>
         }

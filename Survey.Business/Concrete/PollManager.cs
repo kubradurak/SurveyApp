@@ -44,7 +44,7 @@ namespace Survey.Business.Concrete
         {
             var poll = pollDal.GetByIdWithDetails(id);
 
-            var newFile2 = @"AnketDetaylari.docx"+ id;
+            var newFile2 = $@"AnketDetaylari{id}.docx";
             using (var fs = new FileStream(newFile2, FileMode.Create, FileAccess.Write))
             {
                 XWPFDocument doc = new XWPFDocument();
@@ -104,9 +104,16 @@ namespace Survey.Business.Concrete
             return pollDal.GetById(id);
         }
 
+        public QuestionDTO GetPollByIdForAddQuestion(int id)
+        {
+            var poll = pollDal.GetById(id);
+            QuestionDTO questionDTO = new QuestionDTO();
+            questionDTO.Poll = poll;
+            return questionDTO;
+        }
+
         public PollDTO GetPollByIdForVote(int id)
         {
-            // OYLANACAK ANKETİN TÜM BİLGİLERİ BURADA
             var poll = pollDal.GetById(id);
             var question = pollDal.GetQuestionsByPollIdForVote(id);
             PollDTO pollDTO = new PollDTO();

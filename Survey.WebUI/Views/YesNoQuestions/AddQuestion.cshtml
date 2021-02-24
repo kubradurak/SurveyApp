@@ -1,0 +1,24 @@
+﻿@model Survey.Entities.DTO.QuestionDTO;
+
+
+<form method="post">
+    <div class="col-md-6">
+
+        <input type="hidden" asp-for="@Model.Poll.Id" />
+        <label class="form-label">@Model.Poll.Title</label>
+
+    </div>
+    <div class="col-md-6">
+
+        <label class="form-label">@Model.Poll.Description</label>
+
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Sorunuz</label>
+        <textarea class="form-control" asp-for="@Model.YesNoQuestion.Content" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+    <button asp-action="AddQuestion" asp-controller="YesNoQuestions" class="btn btn-success" asp-route-id="@Model.Poll.Id">Soru Ekle</button>
+
+</form>
