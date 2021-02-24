@@ -28,6 +28,11 @@ namespace Survey.DataAccess.Concrete.EfCore
             throw new NotImplementedException();
         }
 
+        public List<YesNoAnswer> GetAnswersByQuestionId(int ıd)
+        {
+            return dbContext.YesNoAnswers.Where(x => x.Id == ıd).ToList();
+        }
+
         public object GetQuestionById(int id)
         {
             throw new NotImplementedException();

@@ -95,9 +95,7 @@ namespace Survey.WebUI.Controllers
 
         public IActionResult Details(int id)
         {
-            // var category = categoryService.GetCategoryById(id);
             var survey = pollService.GetPollsForDetails(id);
-
             return View(survey);
         }
         public IActionResult Delete(int id)
@@ -117,7 +115,11 @@ namespace Survey.WebUI.Controllers
             pollService.Delete(deleted);
             return RedirectToAction(nameof(Index));
         }
-
+        public IActionResult FileDowloadFormatWord(int id)
+        {
+            pollService.FileDowloadFormatWordById(id);
+            return View();
+        }
 
 
         public IActionResult ExpiredSurveys()

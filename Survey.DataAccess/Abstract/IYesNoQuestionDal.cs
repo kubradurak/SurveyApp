@@ -15,5 +15,6 @@ namespace Survey.DataAccess.Abstract
         object GetQuestionByIdWithPoll(int id);
         void Update(YesNoQuestion yesNoQuestion);
         object Delete(int id);
+        List<YesNoAnswer> GetAnswersByQuestionId(int ıd);
     }
 }

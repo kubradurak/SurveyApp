@@ -181,3 +181,4 @@ D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\YesNoAns
 D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Voted\ToBeVotedSurveys.cshtml.g.cs
 D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\YesNoAnswers\VotedPoll.cshtml.g.cs
 D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\YesNoAnswers\ErrorView.cshtml.g.cs
+D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Poll\FileDowloadFormatWord.cshtml.g.cs

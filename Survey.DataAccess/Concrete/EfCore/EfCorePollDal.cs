@@ -67,14 +67,27 @@ namespace Survey.DataAccess.Concrete.EfCore
 
         public int GetPollByQuestionId(int id)
         {
+            var question = dbContext.YesNoQuestions.Find(id);
+            var poll = question.PollId;
             foreach (var item in dbContext.YesNoQuestions)
             {
-                if (item.PollId == id )
+                if (item.PollId == poll)
                 {
                     return item.PollId;
                 }
             }
             return -1;
+        }
+
+        public List<Poll> GetApprovedPoll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<YesNoQuestion> GetQuestionsByPollID(int id)
+        {
+            return dbContext.YesNoQuestions.Where(x => x.Id == id).ToList();
+
         }
     }
 }

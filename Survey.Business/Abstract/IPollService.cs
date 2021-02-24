@@ -18,5 +18,8 @@ namespace Survey.Business.Abstract
         List<Poll> GetExpiredPolls();
         List<Poll> GetActivePolls();
         int GetPollByQuestionId(int a);
-    }
+        void FileDowloadFormatWordById(int id);
+        void SendMail();
+
+        }
 }

@@ -94,12 +94,12 @@ namespace Survey.WebUI.Controllers
 
 
                 yesNoAnswerService.AddYesNoAnswer(yesNoAnswer);
-                return RedirectToAction(nameof(Index));               
-               
+                return RedirectToAction("ToBeVotedSurveys", "Voted");
+
             }
             List<SelectListItem> selectListItems = GetQuestionForSelect();
             ViewBag.Items = selectListItems;
-            return View(yesNoAnswer);
+            return RedirectToAction("ToBeVotedSurveys","Voted");
         }
         public IActionResult ErrorView()
         {

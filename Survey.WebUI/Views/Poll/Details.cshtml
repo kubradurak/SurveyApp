@@ -2,12 +2,14 @@
 
 @{
     ViewData["Title"] = "Details";
+    var count = 1;
 }
 
 <h1>Details</h1>
 
 <div>
     <h4>Poll</h4>
+    <button asp-action="FileDowloadFormatWord" asp-route-id="@Model.Id" class="btn btn-info">Anket Bilgi Dosyası İndir.</button>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -50,13 +52,18 @@
     }
     else
     {
-        @foreach (var book in Model.YesNoQuestions)
+        <h4>Sorular</h4>
+        <br />
+        @foreach (var poll in Model.YesNoQuestions)
         {
-            <div class="col-3">
-                <partial name="_YesNoQuestion" model="@book" />
+            <br />
+            <div class="col-6">
+                <h3>Soru @count</h3>
+                <partial name="_YesNoQuestion" model="@poll" />
             </div>
+            count++;
         }
-    }
+}
 
 
 
