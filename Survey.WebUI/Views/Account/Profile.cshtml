@@ -1,4 +1,4 @@
-﻿@model Survey.Entities.User;
+﻿@model Survey.Entities.DTO.UserAndPollDTO;
 
 @{
     ViewData["Title"] = "Profile";
@@ -9,16 +9,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FullName)
+                @Html.DisplayNameFor(model => model.User.FullName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                @Html.DisplayNameFor(model => model.User.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserName)
+                @Html.DisplayNameFor(model => model.User.UserName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Password)
+                @Html.DisplayNameFor(model => model.User.Password)
             </th>
 
             <th></th>
@@ -28,16 +28,16 @@
 
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => Model.FullName)
+                @Html.DisplayFor(modelItem => Model.User.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => Model.Email)
+                @Html.DisplayFor(modelItem => Model.User.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => Model.UserName)
+                @Html.DisplayFor(modelItem => Model.User.UserName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => Model.Password)
+                @Html.DisplayFor(modelItem => Model.User.Password)
             </td>
 
         </tr>
@@ -45,6 +45,12 @@
     </tbody>
 </table>
 
-<a asp-action="EditProfile" asp-controller="Account" asp-route-id="@Model.Id" class="btn btn-secondary">Profili güncelle</a>
+<a asp-action="EditProfile" asp-controller="Account" asp-route-id="@Model.User.Id" class="btn btn-secondary">Profili güncelle</a>
 
 <h2>Oyladığınız Anketler</h2>
+
+@foreach (var poll in Model.Polls)
+{
+        <partial name="_Pollinfo" model="@poll" />
+
+}

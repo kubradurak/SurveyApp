@@ -184,6 +184,32 @@ namespace Survey.Business.Concrete
             return false;
         }
 
+        public ResultOfPollDTO ResultOfPoll(int id)
+        {
+            int approvers = 0;
+            int rejecting = 0;
+            var poll = pollDal.GetByIdWithDetails(id);
+            var questions = poll.YesNoQuestions;
+            foreach (var question in questions)
+            {
+               var answers =  yesNoAnswerDal.GetAnswersById(question.Id);
+                foreach (var answer in answers)
+                {
+                    if (answer.IsAccepted == true)
+                    {
+                        approvers++;
+                    }
+                    rejecting++;
+                }
+            }
+            ResultOfPollDTO result = new ResultOfPollDTO();
+            result.Poll = poll;
+            result.Approvers = approvers;
+            result.Rejecting = rejecting;
+
+            return result;
+        }
+
         public void SendMail(int id)
         {
             var adminList = userDal.GetAdmins();

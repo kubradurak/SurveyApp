@@ -29,6 +29,11 @@ namespace Survey.DataAccess.Concrete.EfCore
             return dbContext.YesNoAnswers.Include(x => x.YesNoQuestion).AsNoTracking().ToList();
         }
 
+        public List<YesNoAnswer> GetAnswersById(int ıd)
+        {
+            return dbContext.YesNoAnswers.Where(a =>a.YesNoQuestionId == ıd).ToList();
+        }
+
         public int GetAnswersByQuestionId(int id)
         {
             return dbContext.YesNoAnswers.Where(x => x.YesNoQuestionId == id).ToList().Count;

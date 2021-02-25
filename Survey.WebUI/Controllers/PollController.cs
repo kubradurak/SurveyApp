@@ -131,8 +131,8 @@ namespace Survey.WebUI.Controllers
         }
         public IActionResult ResultOfPoll(int id)
         {
-            var poll = pollService.GetPollsForDetails(id);
-            return View(poll);
+            var pollWithAnswers = pollService.ResultOfPoll(id);
+            return View(pollWithAnswers);
         }
 
     }

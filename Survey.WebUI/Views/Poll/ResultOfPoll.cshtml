@@ -1,9 +1,46 @@
-﻿@model Survey.Entities.Poll
+﻿@model Survey.Entities.DTO.ResultOfPollDTO
 
 @{
     ViewData["Title"] = "ResultOfPoll";
+   
+    var approverValueForProgressBar = (100 * Model.Approvers) / (Model.Approvers + Model.Rejecting);
+    var rejectingValueForProgressBar = (100 * Model.Rejecting) / (Model.Approvers + Model.Rejecting);
+  
 }
 
-<h3> @Model.Title Anketinin Sonuçları</h3>
+
+
+<h3> @Model.Poll.Title Anketinin Sonuçları</h3>
+@if (Model.Approvers == 0 && Model.Rejecting == 0)
+{
+    <h4> Soruya henüz cevap verilmemiş </h4>
+}
+else if (Model.Approvers > Model.Rejecting)
+{
+    <h4>Çoğu kullanıcı etkinliği kabul etmiş :)</h4>
+}
+else if (Model.Approvers < Model.Rejecting)
+{
+    <h4>Çoğu kullanıcı etkinliği kabul etmedi :(</h4>
+}
+else
+{
+    <h4>Kullanıcılarda çoğunluk sağlanamadı.Berabere</h4>
+}
+
+
+
+    <label class="col-form-label-lg">Toplam @(Model.Approvers+Model.Rejecting) kişi oy verdi</label>
+    <br />
+
+
+    <label class="col-form-label">@Model.Approvers kişi Evet Oyu verdi</label>
+    <div class="progress">
+        <div class="progress-bar  bg-success" role="progressbar" style="width: @approverValueForProgressBar%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <label class="col-form-label">@Model.Rejecting kişi Hayır oyu verdi</label>
+    <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: @rejectingValueForProgressBar%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
 
 

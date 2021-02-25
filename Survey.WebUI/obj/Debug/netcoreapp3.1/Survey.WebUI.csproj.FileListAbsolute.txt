@@ -201,3 +201,4 @@ D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Voted\Vo
 D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Voted\ThanksForVoted.cshtml.g.cs
 D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\YesNoQuestions\AddQuestion.cshtml.g.cs
 D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\YesNoQuestions\AddedQuestion.cshtml.g.cs
+D:\Kubra\Final2\Survey\Survey.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Pollinfo.cshtml.g.cs

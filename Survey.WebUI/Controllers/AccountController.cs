@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Survey.Business.Abstract;
 using Survey.Entities;
+using Survey.Entities.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,12 @@ namespace Survey.WebUI.Controllers
     public class AccountController : Controller
     {
         private IUserService userService;
+        private IUserSurveysService userSurveysService;
 
-        public AccountController(IUserService userService)
+        public AccountController(IUserService userService, IUserSurveysService userSurveysService )
         {
             this.userService = userService;
+            this.userSurveysService = userSurveysService;
         }
         public IActionResult Index()
         {
@@ -72,7 +75,11 @@ namespace Survey.WebUI.Controllers
         public IActionResult Profile()
         {
             var user = userService.GetUserByUserName(User.Identity.Name);
-            return View(user);
+            var polls = userSurveysService.GetUserById(user.Id);
+            UserAndPollDTO userAndPollDTO = new UserAndPollDTO();
+            userAndPollDTO.User = user;
+            userAndPollDTO.Polls = polls;
+            return View(userAndPollDTO);
         }
         public IActionResult EditProfile(int id)
         {

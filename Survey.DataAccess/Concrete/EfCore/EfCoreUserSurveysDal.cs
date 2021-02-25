@@ -36,6 +36,12 @@ namespace Survey.DataAccess.Concrete.EfCore
 
         }
 
+        public List<Poll> GEtPollByUserıd(int ıd)
+        {
+           return dbContext.UserSurveys.Where(x => x.UserId == ıd).Select(a =>a.Poll).ToList(); 
+            
+        }
+
         public List<UserPoll> GetVotedPollsOfUserByUserId(int ıd)
         {
             return dbContext.UserSurveys

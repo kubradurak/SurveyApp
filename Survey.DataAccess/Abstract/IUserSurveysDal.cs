@@ -11,5 +11,6 @@ namespace Survey.DataAccess.Abstract
         void Add(UserPoll userPoll);
         List<UserPoll> GetMissedPollsOfUserByUserId(int ıd);
         List<UserPoll> GetVotedPollsOfUserByUserId(int ıd);
+        List<Poll> GEtPollByUserıd(int ıd);
     }
 }

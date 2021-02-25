@@ -13,5 +13,6 @@ namespace Survey.Business.Abstract
         List<UserPoll> MissedPollsOfUser(int ıd);
         List<UserPoll> VotedPollsOfUser(int ıd);
         void Voted(PollDTO polDTO, User user);
+        List<Poll> GetUserById(int ıd);
     }
 }

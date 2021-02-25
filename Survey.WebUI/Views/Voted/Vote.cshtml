@@ -11,31 +11,37 @@
         <label class="form-label">Açıklama:</label>
         <label class="form-label">@Model.Poll.Description</label>
     </div>
-    <div class="col-md-6">
+    @if (Model.YesNoQuestion == null)
+    {
+        <label class="form-label">Ankette henüz soru yok :(</label>
+    }
+    else
+    {
+        <div class="col-md-6">
 
-        <label class="form-label">Soru:</label>
-        <input type="hidden" asp-for="@Model.YesNoQuestion.Id" />
-        <label class="form-label">@Model.YesNoQuestion.Content</label>
+            <label class="form-label">Soru:</label>
+            <input type="hidden" asp-for="@Model.YesNoQuestion.Id" />
+            <label class="form-label">@Model.YesNoQuestion.Content</label>
 
-    </div>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" asp-for="@Model.YesNoAnswer.IsAccepted" type="radio" value="True" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" asp-for="@Model.YesNoAnswer.IsAccepted">
+                Evet
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" asp-for="@Model.YesNoAnswer.IsAccepted" type="radio" value="False" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" asp-for="@Model.YesNoAnswer.IsAccepted">
+                Hayır
+            </label>
+        </div>
 
-    <div class="form-check">
-        <input class="form-check-input" asp-for="@Model.YesNoAnswer.IsAccepted" type="radio" value="True" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" asp-for="@Model.YesNoAnswer.IsAccepted">
-            Evet
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" asp-for="@Model.YesNoAnswer.IsAccepted" type="radio" value="False" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" asp-for="@Model.YesNoAnswer.IsAccepted">
-            Hayır
-        </label>
-    </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Eklemek istediğiniz</label>
+            <textarea class="form-control" asp-for="@Model.YesNoAnswer.UserComment" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
 
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Eklemek istediğiniz</label>
-        <textarea class="form-control" asp-for="@Model.YesNoAnswer.UserComment" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-
-    <button asp-action="Vote" asp-controller="Voted" class="btn btn-success" asp-route-id="@Model.Poll.Id">Gönder</button>
+        <button asp-action="Vote" asp-controller="Voted" class="btn btn-success" asp-route-id="@Model.Poll.Id">Gönder</button>
+    }
 </form>

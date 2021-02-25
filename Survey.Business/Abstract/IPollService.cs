@@ -26,5 +26,6 @@ namespace Survey.Business.Abstract
         List<Poll> GetUnapprovedPolls();
         PollDTO GetPollByIdForVote(int id);
         QuestionDTO GetPollByIdForAddQuestion(int id);
+        ResultOfPollDTO ResultOfPoll(int id);
     }
 }

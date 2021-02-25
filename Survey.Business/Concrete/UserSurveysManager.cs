@@ -31,6 +31,11 @@ namespace Survey.Business.Concrete
             return userSurveysDal.CheckVotedUser(userId , pollId);
         }
 
+        public List<Poll> GetUserById(int ıd)
+        {
+            return userSurveysDal.GEtPollByUserıd(ıd);
+        }
+
         public List<UserPoll> MissedPollsOfUser(int ıd)
         {
             return userSurveysDal.GetMissedPollsOfUserByUserId(ıd);
